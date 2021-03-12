@@ -1,0 +1,20 @@
+{
+  "name": "astro",
+  "version": "1.0.0",
+  "description": "This is an npm package for astrology information.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "javascript",
+    "astrology",
+    "astro",
+    "vedic"
+  ],
+  "author": "Tanish Gupte",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
