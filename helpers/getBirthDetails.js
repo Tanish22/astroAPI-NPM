@@ -1,6 +1,6 @@
-const request = require("request");
+const {birthDetails} = require("../app.js")
 
-const baseurl = "https://json.astrologyapi.com/v1/birth_details";
+const resrc = "birth_details";
 
 const form = {
     day: '1',
@@ -13,23 +13,8 @@ const form = {
     tzone: '5.5'
 };
 
-var birthDetails = async () => {
-    var auth = "Basic " + Buffer.from(`${userId}:${apiKey}`).toString("Base64");
-    return new Promise((resolve, reject) => {
-        return request.post({
-            headers: {
-                "Authorization": auth,
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Accept-Language": "en"
-            },
-            form,
-            url: baseurl
-        }, function (error, response, body) {
-            resolve(JSON.parse(body));
-        }, function (err) {
-            reject(JSON.parse(err));
-        });
-    });
-};
-
-module.exports = birthDetails;
+birthDetails(resrc, form).then(function (response) {
+    console.log(response);
+}, function (error) {
+    console.log(error);
+});
