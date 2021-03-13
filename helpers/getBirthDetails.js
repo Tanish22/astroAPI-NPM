@@ -1,4 +1,4 @@
-const {birthDetails} = require("../app.js")
+const api = require("../app.js")
 
 const resrc = "birth_details";
 
@@ -13,7 +13,9 @@ const form = {
     tzone: '5.5'
 };
 
-birthDetails(resrc, form).then(function (response) {
+//api.abc('ads','asdaa');
+
+api.birthDetails(resrc, form).then(function (response) {
     console.log(response);
 }, function (error) {
     console.log(error);
