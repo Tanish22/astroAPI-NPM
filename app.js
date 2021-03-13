@@ -3,18 +3,20 @@ const request = require("request");
 
 const baseurl = "https://json.astrologyapi.com/v1/";
 
-const form = {
-    day: '1',
-    month: '3',
-    year: '2021',
-    hour: '9',
-    min: '35',
-    lat: '19.2200',
-    lon: '72.2200',
-    tzone: '5.5'
-};
 
-var birthDetails = async (resource) => {
+
+// const form = {
+//     day: '1',
+//     month: '3',
+//     year: '2021',
+//     hour: '9',
+//     min: '35',
+//     lat: '19.2200',
+//     lon: '72.2200',
+//     tzone: '5.5'
+// };
+
+var birthDetails = async (resource, data) => {
     const url = baseurl + resource;
 
     var auth = "Basic " + Buffer.from(`${userId}:${apiKey}`).toString("Base64");
@@ -26,7 +28,7 @@ var birthDetails = async (resource) => {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Accept-Language": "en"
             },
-            form,
+            //form,
             url
         }, function (error, response, body) {
             resolve(JSON.parse(body));
